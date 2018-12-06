@@ -167,6 +167,7 @@ return [
          */
         Way\Generators\GeneratorsServiceProvider::class,
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
         /*
          * Application Service Providers...
