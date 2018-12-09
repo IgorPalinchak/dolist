@@ -64,7 +64,7 @@
                                     <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
                                 </a>
                             @else
-                                <a href="#"
+                                <a href="logout"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                 >
                                     <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
