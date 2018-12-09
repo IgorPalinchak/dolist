@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => 'top-nav',
+    'layout' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -112,7 +112,7 @@ return [
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+//            'can'  => 'manage-blog',
         ],
         [
             'text'        => 'Pages',
