@@ -89,7 +89,7 @@ return [
 
     'logout_url' => 'logout',
 
-    'logout_method' => 'logout',
+    'logout_method' => null,
 
     'login_url' => 'login',
 

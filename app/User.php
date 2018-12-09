@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Modesl\Role;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -29,13 +30,19 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
-//    public function role()
-//    {
-//        return $this->belongsTo(Role::class);
-//    }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
 
+    /**
+     * @return bool
+     */
     public function isAdmin()
     {
-        return $this->role_id == '1';
+        return $this->role->id == '1';
     }
 }
