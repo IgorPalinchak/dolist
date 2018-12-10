@@ -3,9 +3,10 @@
 namespace App;
 
 use App\Modesl\Role;
-use App\Modesl\UserCategory;
+use App\Modesl\UsersCategory;
 use App\Modesl\UsersTask;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
