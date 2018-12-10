@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 250);
 			$table->string('remember_token', 100)->nullable();
 			$table->timestamps();
-			$table->integer('role_id')->index('fk_users_roles_idx');
+			$table->integer('role_id');
 		});
 	}
 

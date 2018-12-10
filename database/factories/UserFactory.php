@@ -13,12 +13,40 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+
+
+$factory->defineAs(App\User::class, 'admin', function (Faker $faker) {
+    return [
+        'name'=>'Admin',
+        'email'=>'ipalinchak@yahoo.com',
+        'email_verified_at' => now(),
+        'password' => bcrypt('111111'),
+        'remember_token' => str_random(10),
+        'role_id'=>last(factory(App\Modesl\Role::class, 'admin', 1)->create()->pluck('id')->toArray())
+    ];
+});
+
+$factory->defineAs(App\Modesl\Role::class, 'admin', function () {
+    return [
+        'alias'=>'Admin',
+        'name'=>'Admin',
+    ];
+});
+
+$factory->defineAs(App\User::class, 'default' , function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'password' => bcrypt('22222'),
         'remember_token' => str_random(10),
+        'role_id'=>'1'
+    ];
+});
+
+$factory->defineAs(App\Modesl\Role::class, 'default', function (Faker $faker) {
+    return [
+        'alias'=>'default',
+        'name'=>$faker->firstName,
     ];
 });

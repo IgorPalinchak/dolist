@@ -3,6 +3,8 @@
 namespace App;
 
 use App\Modesl\Role;
+use App\Modesl\UserCategory;
+use App\Modesl\UsersTask;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -44,5 +46,18 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isAdmin()
     {
         return $this->role->id == '1';
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function categories() : HasMany
+    {
+        return $this->hasMany(UsersCategory::class);
+    }
+
+    public function tasks() : HasMany
+    {
+        return $this->hasMany(UsersTask::class);
     }
 }

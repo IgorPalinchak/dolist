@@ -14,7 +14,7 @@ class AddForeignKeysToUsersCategoriesTable extends Migration {
 	{
 		Schema::table('users_categories', function(Blueprint $table)
 		{
-			$table->foreign('id', 'fk_user_id')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('CASCADE');
+			$table->foreign('user_id')->references('id')->on('users');
 		});
 	}
 
