@@ -43,6 +43,6 @@ class UsersCategiriesTableSeeder extends Seeder
     private function getRandomCategoryId()
     {
         $rundomCat = App\Modesl\UsersCategory::inRandomOrder()->where('user_id', self::$userId)->first();
-        return !is_null($rundomCat) ? $rundomCat->id : null;
+        return !is_null($rundomCat) ? $rundomCat->id : 0;
     }
 }

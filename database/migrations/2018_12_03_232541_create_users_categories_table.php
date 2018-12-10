@@ -16,7 +16,7 @@ class CreateUsersCategoriesTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->string('name', 45)->index('name');
-			$table->integer('parent_id')->nullable();
+			$table->integer('parent_id')->default('0');
 			$table->integer('user_id')->index('user_Id');
 		});
 	}

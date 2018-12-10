@@ -14,8 +14,8 @@ class AddForeignKeysToUsersTasksTable extends Migration {
 	{
 		Schema::table('users_tasks', function(Blueprint $table)
 		{
-			$table->foreign('users_category_id', 'fk_users_tasks_cats')->references('id')->on('users_categories')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('user_id', 'fk_users_tasks_to_users')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('users_category_id', 'fk_users_tasks_cats')->references('id')->on('users_categories')->onDelete('cascade');
+			$table->foreign('user_id', 'fk_users_tasks_to_users')->references('id')->on('users')->onDelete('cascade');
 		});
 	}
 
@@ -32,6 +32,7 @@ class AddForeignKeysToUsersTasksTable extends Migration {
 			$table->dropForeign('fk_users_tasks_cats');
 			$table->dropForeign('fk_users_tasks_to_users');
 		});
+        Schema::dropIfExists('users_tasks');
 	}
 
 }

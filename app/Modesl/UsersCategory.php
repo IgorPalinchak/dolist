@@ -12,13 +12,6 @@ class UsersCategory extends Model
 {
     protected $fillable = ['name', 'user_id'];
     public $timestamps = false;
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function users() : HasMany
-    {
-        return $this->hasMany(User::class);
-    }
 
 
     /**
@@ -35,5 +28,9 @@ class UsersCategory extends Model
     public function usersTasks(): HasMany
     {
         return $this->hasMany(UsersTask::class);
+    }
+
+    public function children(){
+        return $this->hasMany(self::class, 'parent_id');
     }
 }
