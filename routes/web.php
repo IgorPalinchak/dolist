@@ -25,11 +25,11 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth', 'i
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::group(['prefix'=>'todolist', 'namespace'=>'Dolist', 'middleware'=>['auth']], function (){
+//Route::group(['prefix'=>'todolist', 'namespace'=>'Dolist', 'middleware'=>['auth']], function (){
 //    Route::get('/', 'UserCategory@listAll')->name('todolist.index');
 //    Route::get('/tasks/{catId}', 'UserCategory@categoryTasks')->name('todolist.tasks');
-    Route::resource('/', 'UserCategory@listAll')
-        ->name('listAll', 'todolist.listAll');
+//    Route::resource('/', 'Dolist\UserCategory');
 //    Route::resource('/tasks/{catId}',  'UserTask');//->name('todolist.tasks');
 
-});
+//});
+Route::resource('todolist', 'Dolist\UserCategory', ['middleware'=>['auth']]);
