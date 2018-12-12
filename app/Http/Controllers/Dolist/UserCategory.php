@@ -36,8 +36,8 @@ class UserCategory extends Controller
         $userTasks = Auth::user()->tasks;
         $ct = UsersCategory::with('user')->where('user_id', Auth::user()->id)
             ->with('children')->where('parent_id', 0)->paginate('3');
-        dump($ct);
-        dd($userCategories->groupBy('parent_id'), $userTasks, Auth::user()->id);
+//        dump($ct);
+//        dd($userCategories->groupBy('parent_id'), $userTasks, Auth::user()->id);
         return view('dolist.main');
     }
     public function create(){

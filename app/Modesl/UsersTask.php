@@ -3,6 +3,8 @@
 namespace App\Modesl;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class UsersTask extends Model
 {
